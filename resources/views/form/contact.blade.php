@@ -10,34 +10,20 @@
 </head>
 
 <style>
-    .contact {
-        width: 900px;
-        margin: 0 auto;
-        padding: 60px 0;
-    }
-
-    .title {
-        text-align: center;
-        font-size: 2.5rem;
-    }
-
     .contact__table {
         width: 100%;
         margin-bottom: 2rem;
-
-        /* border-collapse: separate;
-        border-spacing: 2rem; */
     }
 
     td {
         padding: 1rem 0;
     }
 
-
     th {
         text-align: start;
         vertical-align: top;
         padding-top: 1.5rem;
+        min-width: 200px;
     }
 
     th:not(.building)::after {
@@ -54,24 +40,74 @@
         margin-top: 1rem;
     }
 
-    .btn {
-        background-color: var(--color-main);
-        color: var(--color-base);
-        padding: 1rem 2rem;
-        width: 200px;
-        border-radius: 0.5rem;
-    }
-
     .textarea {
         height: 10em;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    .radio-btn {
+        cursor: pointer;
+        display: block;
+        padding-left: 5rem;
+        position: relative;
+        width: auto;
+        color: var(--color-accent);
+    }
+
+    .radio-btn::before {
+        background: var(--color-bace);
+        border: 1px solid var(--color-accent);
+        border-radius: 50%;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .radio-btn::after {
+        background: var(--color-accent);
+        border-radius: 50%;
+        content: '';
+        display: block;
+        height: 1.2rem;
+        width: 1.2rem;
+        left: 1rem;
+        top: 50%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        position: absolute;
+    }
+
+    input[type="radio"]:checked+.radio-btn::after {
+        opacity: 1;
+        background-color: var(--color-main);
+        border: 1px solid var(--color-main);
+    }
+
+    input[type="radio"]:checked+.radio-btn::before {
+        opacity: 1;
+        border: 1px solid var(--color-main);
+    }
+
+    input[type="radio"]:checked+.radio-btn {
+        opacity: 1;
+        color: var(--color-main);
     }
 </style>
 
 <body>
     <main>
-        <div class="contact">
+        <div class="contact container">
             <h1 class="text-center title">お問い合わせ</h1>
-            <form>
+            <form action="{{ route('contact') }}" method="POST">
                 @csrf
                 <table class="contact__table">
                     <tr>
