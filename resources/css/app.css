@@ -6,6 +6,7 @@
     --color-main: #000000;
     --color-base: #ffff;
     --color-accent: #808080;
+    --color-alert: #ff0000;
 }
 
 html {

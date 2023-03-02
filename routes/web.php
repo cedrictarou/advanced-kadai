@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/form/contact');
 });
 
 Route::get('/form/contact', [FormController::class, 'contact'])->name('contact');

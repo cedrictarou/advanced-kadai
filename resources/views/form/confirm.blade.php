@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>advanced kadai</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 
 <style>
@@ -28,6 +29,7 @@
 
     td {
         padding: 1rem 0;
+        width: 100%;
     }
 
     th {
@@ -56,46 +58,43 @@
                     <tr>
                         <th>お名前</th>
                         <td>
-                            <p>山田<span>&emsp;</span>太郎</p>
+                            <p>{{ $input['last_name'] }}<span>&emsp;</span>{{ $input['first_name'] }}</p>
                         </td>
                     </tr>
                     <tr>
                         <th>性別</th>
                         <td>
-                            男性
+                            {{ $input['gender'] === 1 ? '男性' : '女性' }}
                         </td>
                     </tr>
                     <tr>
                         <th>メールアドレス</th>
                         <td>
-                            test@email.com
+                            {{ $input['email'] }}
                         </td>
                     </tr>
                     <tr>
                         <th>郵便番号</th>
                         <td>
-                            123-4567
+                            {{ $input['postcode'] }}
                         </td>
                     </tr>
                     <tr>
                         <th>住所</th>
                         <td>
-                            東京都渋谷区千駄ヶ谷1-2-3
+                            {{ $input['address'] }}
                         </td>
                     </tr>
                     <tr>
                         <th>建物</th>
                         <td>
-                            千駄ヶ谷マンション101
+                            {{ $input['building_name'] }}
                         </td>
                     </tr>
                     <tr>
                         <th>ご意見</th>
                         <td>
-                            いつもお世話になっております。先日、貴社製品を購入させていただ
-                            きました。この度、不具合が生じ、説明書に沿って操作を進めていま
-                            したが上手く行きませんでした。どのように直せば良いかご教授いた
-                            だきたいです。
+                            {{ $input['opinion'] }}
                         </td>
                     </tr>
                 </table>
@@ -103,7 +102,7 @@
                     <button class="btn" type="submit">送信</button>
                 </div>
                 <div class="text-center mt-5">
-                    <a href="{{ route('contact') }}" class="link">修正する</a>
+                    <button href="{{ route('contact') }}" class="link" name="back" type="submit">修正する</button>
                 </div>
             </form>
         </div>
