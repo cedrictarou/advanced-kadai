@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,7 @@ Route::get('/form/confirm', [FormController::class, 'confirm'])->name('confirm')
 Route::post('/form/confirm', [FormController::class, 'store'])->name('store');
 
 Route::get('/form/thanks', [FormController::class, 'thanks'])->name('thanks');
+
+// 管理者用
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+// Route::get('/admin/search', [AdminController::class, 'search'])->name('admin.search');
