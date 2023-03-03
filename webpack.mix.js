@@ -12,11 +12,13 @@ const mix = require("laravel-mix");
  */
 
 mix.js("resources/js/app.js", "public/js")
+    .js("resources/js/admin.js", "public/js")
     .postCss("resources/css/app.css", "public/css", [
         require("postcss-import"),
         require("tailwindcss"),
         require("autoprefixer"),
     ])
+    .postCss("resources/css/admin.css", "public/css")
     .browserSync({
         proxy: {
             target: "http://127.0.0.1:8000",

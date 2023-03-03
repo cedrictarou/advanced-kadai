@@ -1,0 +1,63 @@
+ .admin {
+     width: 80%;
+     margin: 0 auto;
+ }
+
+ .search {
+     border: .1rem solid var(--color-main);
+     padding: 3rem 5rem;
+ }
+
+ .search__label {
+     width: 15rem;
+     font-weight: 600;
+ }
+
+ .search__label--short {
+     width: 5rem;
+     font-weight: 600;
+ }
+
+ .search__input {
+     width: 25rem !important;
+ }
+
+ .row {
+     display: flex;
+     align-items: center;
+     margin-bottom: 2rem;
+ }
+
+ .page-nation {
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .result__table {
+     width: 100%;
+     text-align: center;
+ }
+
+ thead {
+     border-bottom: 2px solid var(--color-main);
+ }
+
+ th {
+     padding: 1rem 1rem;
+ }
+
+ td {
+     min-width: 50px;
+     vertical-align: top;
+     padding: 1rem 0;
+ }
+
+ .opinion {
+     width: 500px;
+     padding: 1rem 0;
+     transition: all 0.3s ease;
+ }
+
+ .opinion.open {
+     padding-bottom: 1.5rem;
+ }

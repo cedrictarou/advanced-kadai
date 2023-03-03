@@ -18,4 +18,30 @@ class Contact extends Model
         'building_name',
         'opinion'
     ];
+
+    public function scopeSearch($query, $search)
+    {
+        foreach ($search as $key => $value) {
+            switch ($key) {
+                case 'fullname':
+                case 'gender':
+                case 'email':
+                    if ($value) {
+                        $query->where($key, 'LIKE', "%{$value}%");
+                    }
+                    break;
+                case 'start_date':
+                    if ($value) {
+                        $query->where('created_at', '>=', $value);
+                    }
+                    break;
+                case 'end_date':
+                    if ($value) {
+                        $query->where('created_at', '<=', $value);
+                    }
+                    break;
+            }
+        }
+        return $query;
+    }
 }

@@ -1,5 +1,5 @@
 require("./bootstrap");
-
+// contactページ用
 const postcode = document.querySelector("#postcode");
 const address = document.querySelector("#address");
 
