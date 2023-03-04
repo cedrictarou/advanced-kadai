@@ -8,7 +8,7 @@
 
             {{-- page nation --}}
             @if ($contacts)
-                <x-pagination />
+                <x-pagination :contacts=$contacts />
             @endif
 
             {{-- result --}}

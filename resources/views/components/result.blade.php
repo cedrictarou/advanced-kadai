@@ -17,7 +17,13 @@
                     <td>{{ $contact['email'] }}</td>
                     <td class="text-start opinion">{{ $contact['opinion'] }}
                     </td>
-                    <td><button class="btn btn--small">削除</button></td>
+                    <td>
+                        <form method="POST" action="{{ route('admin.destroy', $contact->id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn--small" type="submit">削除</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

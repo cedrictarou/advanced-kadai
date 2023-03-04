@@ -29,4 +29,4 @@ Route::get('/form/thanks', [FormController::class, 'thanks'])->name('thanks');
 
 // 管理者用
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-// Route::get('/admin/search', [AdminController::class, 'search'])->name('admin.search');
+Route::delete('/admin/{contactId}', [AdminController::class, 'destroy'])->name('admin.destroy');

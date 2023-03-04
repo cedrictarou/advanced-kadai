@@ -15,11 +15,18 @@ class AdminController extends Controller
 
         if ($search) {
             // 検索機能
-            $contacts = Contact::search($search)->select('id', 'fullname', 'gender', 'email', 'opinion')->get();
+            $contacts = Contact::search($search)->select('id', 'fullname', 'gender', 'email', 'opinion')->paginate(5);
         } else {
             $contacts = null;
         }
 
         return view('admin.index', compact('contacts'));
+    }
+
+    public function destroy($contactId)
+    {
+        Contact::destroy($contactId);
+
+        return back();
     }
 }
