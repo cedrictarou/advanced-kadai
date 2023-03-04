@@ -28,7 +28,7 @@
         <div class="thanks__container">
             <h1 class="title">ご意見いただきありがとうございました。</h1>
             <div class="text-center mt-20">
-                <a class="btn" href="{{ route('contact') }}">トップへ戻る</a>
+                <a class="btn" href="{{ route('form.index') }}">トップへ戻る</a>
             </div>
         </div>
     </main>

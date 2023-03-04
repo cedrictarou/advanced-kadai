@@ -55,7 +55,7 @@
         <div class="contact container">
             <h1 class="text-center title">お問い合わせ</h1>
 
-            <form action="{{ route('contact') }}" method="POST">
+            <form action="{{ route('form.index') }}" method="POST">
                 @csrf
                 <table class="contact__table">
                     <tr>

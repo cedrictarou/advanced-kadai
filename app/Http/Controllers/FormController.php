@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
-    public function contact()
+    public function index()
     {
-        return view('form.contact');
+        return view('form.index');
     }
 
     public function post(ContactRequest $request)
@@ -37,7 +37,7 @@ class FormController extends Controller
         $input = $request->session()->get("form_input");
         if ($request->has('back')) {
             // 修正ボタンを押された時
-            return redirect('/form/contact')->withInput($input);
+            return redirect('/form')->withInput($input);
         }
         // セッションのデータを元にcontactの内容をDBへ登録する
         $contact_data = [

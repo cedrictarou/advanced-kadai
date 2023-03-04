@@ -19,14 +19,21 @@ Route::get('/', function () {
     return redirect('/form/contact');
 });
 
-Route::get('/form/contact', [FormController::class, 'contact'])->name('contact');
-Route::post('/form/contact', [FormController::class, 'post'])->name('post');
+// 問い合わせ用
+Route::group(['prefix' => 'form', 'as' => 'form.'], function () {
+    Route::get('/', [FormController::class, 'index'])->name('index');
+    Route::post('/', [FormController::class, 'post'])->name('post');
 
-Route::get('/form/confirm', [FormController::class, 'confirm'])->name('confirm');
-Route::post('/form/confirm', [FormController::class, 'store'])->name('store');
+    Route::get('/confirm', [FormController::class, 'confirm'])->name('confirm');
+    Route::post('/confirm', [FormController::class, 'store'])->name('store');
 
-Route::get('/form/thanks', [FormController::class, 'thanks'])->name('thanks');
+    Route::get('/thanks', [FormController::class, 'thanks'])->name('thanks');
+});
+
+
 
 // 管理者用
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-Route::delete('/admin/{contactId}', [AdminController::class, 'destroy'])->name('admin.destroy');
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::delete('/{contactId}', [AdminController::class, 'destroy'])->name('destroy');
+});

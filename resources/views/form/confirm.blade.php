@@ -52,7 +52,7 @@
     <main>
         <div class="contact container">
             <h1 class="text-center title">内容確認</h1>
-            <form method="POST" action="{{ route('confirm') }}">
+            <form method="POST" action="{{ route('form.confirm') }}">
                 @csrf
                 <table class="contact__table">
                     <tr>
@@ -102,7 +102,7 @@
                     <button class="btn" type="submit">送信</button>
                 </div>
                 <div class="text-center mt-5">
-                    <button href="{{ route('contact') }}" class="link" name="back" type="submit">修正する</button>
+                    <button href="{{ route('form.index') }}" class="link" name="back" type="submit">修正する</button>
                 </div>
             </form>
         </div>
