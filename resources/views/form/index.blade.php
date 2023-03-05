@@ -1,59 +1,19 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>advanced kadai</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@section('title', 'お問い合わせページ')
+
+@section('pageCss')
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+@endsection
+
+@section('pageJs')
     <script src="{{ mix('js/app.js') }}" defer></script>
-</head>
+@endsection
 
-<style>
-    .contact__table {
-        width: 100%;
-        margin-bottom: 2rem;
-    }
-
-    td {
-        padding: 1rem 0;
-    }
-
-    th {
-        text-align: start;
-        vertical-align: top;
-        padding-top: 1.5rem;
-        min-width: 200px;
-    }
-
-    th:not(.building)::after {
-        display: inline-block;
-        content: "※";
-        color: red;
-        margin-left: .5rem;
-        transform: translateY(-.2rem)
-    }
-
-    .eg {
-        color: var(--color-accent);
-        margin-left: 2rem;
-        margin-top: 1rem;
-    }
-
-    .textarea {
-        height: 10em;
-    }
-
-    .alert {
-        color: var(--color-alert);
-    }
-</style>
-
-<body>
+@section('content')
     <main>
-        <div class="contact container">
-            <h1 class="text-center title">お問い合わせ</h1>
+        <section class="contact">
+            <h1 class="title mb-5">お問い合わせ</h1>
 
             <form action="{{ route('form.index') }}" method="POST">
                 @csrf
@@ -129,8 +89,7 @@
                     <tr>
                         <th class="building">建物</th>
                         <td>
-                            <input class="input" type="text" name="building_name"
-                                value="{{ old('building_name') }}">
+                            <input class="input" type="text" name="building_name" value="{{ old('building_name') }}">
                             <p class="eg">例)千駄ヶ谷マンション101</p>
                             @error('building_name')
                                 <p class="alert">{{ $message }}</p>
@@ -151,8 +110,6 @@
                     <button class="btn" type="submit">確認</button>
                 </div>
             </form>
-        </div>
+        </section>
     </main>
-</body>
-
-</html>
+@endsection

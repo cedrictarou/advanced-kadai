@@ -20,7 +20,7 @@ class FormController extends Controller
         // 受け取った値をsessionに保存
         $request->session()->put("form_input", $input);
         // confirmへ移動
-        return redirect('/form/confirm');
+        return redirect()->route('form.confirm');
     }
 
     public function confirm(Request $request)
@@ -37,7 +37,7 @@ class FormController extends Controller
         $input = $request->session()->get("form_input");
         if ($request->has('back')) {
             // 修正ボタンを押された時
-            return redirect('/form')->withInput($input);
+            return redirect()->route('form.index')->withInput($input);
         }
         // セッションのデータを元にcontactの内容をDBへ登録する
         $contact_data = [
@@ -53,7 +53,7 @@ class FormController extends Controller
         // seccionデータを空にする
         $request->session()->forget("form_input");
         // 問題なければthanksページへ
-        return redirect('/form/thanks');
+        return redirect()->route('form.thanks');
     }
 
     public function thanks()

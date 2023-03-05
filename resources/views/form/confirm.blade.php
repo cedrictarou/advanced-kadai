@@ -1,57 +1,15 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>advanced kadai</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+@section('title', '確認ページ')
 
-</head>
+@section('pageCss')
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+@endsection
 
-<style>
-    .contact {
-        width: 900px;
-        margin: 0 auto;
-        padding: 60px 0;
-    }
-
-    .title {
-        text-align: center;
-        font-size: 2.5rem;
-    }
-
-    .contact__table {
-        width: 100%;
-        margin-bottom: 2rem;
-    }
-
-    td {
-        padding: 1rem 0;
-        width: 100%;
-    }
-
-    th {
-        text-align: start;
-        vertical-align: top;
-        padding-top: 1.5rem;
-        min-width: 200px;
-    }
-
-    .btn {
-        background-color: var(--color-main);
-        color: var(--color-base);
-        padding: 1rem 2rem;
-        width: 200px;
-        border-radius: 0.5rem;
-    }
-</style>
-
-<body>
+@section('content')
     <main>
-        <div class="contact container">
-            <h1 class="text-center title">内容確認</h1>
+        <section class="confirm">
+            <h1 class="title mb-5">内容確認</h1>
             <form method="POST" action="{{ route('form.confirm') }}">
                 @csrf
                 <table class="contact__table">
@@ -64,7 +22,7 @@
                     <tr>
                         <th>性別</th>
                         <td>
-                            {{ $input['gender'] === 1 ? '男性' : '女性' }}
+                            {{ intVal($input['gender']) === 1 ? '男性' : '女性' }}
                         </td>
                     </tr>
                     <tr>
@@ -86,7 +44,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>建物</th>
+                        <th class="building">建物</th>
                         <td>
                             {{ $input['building_name'] }}
                         </td>
@@ -105,8 +63,6 @@
                     <button href="{{ route('form.index') }}" class="link" name="back" type="submit">修正する</button>
                 </div>
             </form>
-        </div>
+        </section>
     </main>
-</body>
-
-</html>
+@endsection

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/form/contact');
+    return redirect('/form');
 });
 
 // 問い合わせ用

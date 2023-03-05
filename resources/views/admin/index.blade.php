@@ -1,10 +1,24 @@
-<x-admin>
-    <main>
-        <div class="container admin">
-            <h1 class="title mb-5">管理システム</h1>
+@extends('layouts')
 
-            {{-- search --}}
-            <x-search />
+@section('title', '管理システム')
+
+@section('pageCss')
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+@endsection
+
+@section('pageJs')
+    <script src="{{ mix('js/admin.js') }}" defer></script>
+@endsection
+
+@section('content')
+    <main>
+        <section class="admin">
+            <h1 class="title mb-5">管理システム</h1>
+            <div class="search mb-10">
+                {{-- search --}}
+                <x-search />
+            </div>
+
 
             {{-- page nation --}}
             @if ($contacts)
@@ -15,6 +29,6 @@
             @if ($contacts)
                 <x-result :contacts=$contacts />
             @endif
-        </div>
+        </section>
     </main>
-</x-admin>
+@endsection

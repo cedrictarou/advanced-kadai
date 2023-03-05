@@ -1,0 +1,77 @@
+.contact__table {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+td {
+    padding: 1rem 0;
+}
+
+th {
+    text-align: start;
+    vertical-align: top;
+    padding-top: 1.5rem;
+    min-width: 200px;
+}
+
+th:not(.building)::after {
+    display: inline-block;
+    content: "※";
+    color: red;
+    margin-left: .5rem;
+    transform: translateY(-.2rem)
+}
+
+.eg {
+    color: var(--color-accent);
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.textarea {
+    height: 10em;
+}
+
+.alert {
+    color: var(--color-alert);
+}
+
+/* confirmページ */
+.contact {
+    width: 900px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.contact__table {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+td {
+    padding: 1rem 0;
+    width: 100%;
+}
+
+th {
+    text-align: start;
+    vertical-align: top;
+    padding-top: 1.5rem;
+    min-width: 200px;
+}
+
+.btn {
+    background-color: var(--color-main);
+    color: var(--color-base);
+    padding: 1rem 2rem;
+    width: 200px;
+    border-radius: 0.5rem;
+}
+
+/* thanksページ */
+.thanks {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
